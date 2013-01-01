@@ -1,8 +1,9 @@
+# This is a simple file to declare a client on the BURP server.
+
 cname = <%= @fqdn %>
 password = <%= @client_password %>
 dedup_group = <%= @fqdn %>
 
 # More configuration files can be read, using syntax like the following
-# (without the leading '# ').
 . incexc/linux_excludes
 
