@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+<%= node['burp']['cron_starttime'] %>	root	sleep $(( $RANDOM % <% node['burp']['cron_sleeptime'] %> )) && [ -x /usr/sbin/burp ] && /usr/sbin/burp -a t >>/var/log/burp-client 2>&1
+

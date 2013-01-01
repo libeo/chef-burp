@@ -1,0 +1,92 @@
+include = /
+
+exclude = /tmp
+exclude = /dev
+exclude = /proc
+exclude = /sys
+exclude = /boot
+exclude = /mnt
+exclude = /media
+
+exclude = /home/klamontagne/tmp
+exclude = /home/klamontagne/iso
+exclude = /home/klamontagne/download
+exclude = /home/.ecryptfs
+exclude = /home/virt
+exclude = /usr/src
+exclude = /var/cache
+exclude = /var/lib/dpkg
+exclude = /usr/share/man
+exclude = /lib/modules
+exclude = /usr/share/doc
+exclude = /var/lib/mlocate
+
+exclude = /var/spool/burp
+
+
+exclude = /var/lib/mysql
+exclude_regex = /var/lib/postgresql.*
+
+exclude_ext = iso
+exclude_ext = vdi
+exclude_ext = vmdk
+exclude_ext = vhd
+
+exclude_regex=typo3temp
+exclude_regex=deprecation_.*\.log$
+
+exclude_regex=\.ecryptfs
+exclude_regex=\.cache
+exclude_regex=\.Private
+exclude_regex=\.gvfs
+exclude_regex=\.Trash
+exclude_regex=\.thumbnails
+exclude_regex=\.macromedia
+exclude_regex=\.adobe
+exclude_regex=\.gnome2
+exclude_regex=\.dbus
+exclude_regex=\.mozilla/.*/Cache
+exclude_regex=\.thunderbird/.*/Cache
+exclude_regex=\.thunderbird/.*/ImapMail
+exclude_regex=\.local/share/Trash/
+exclude_regex=global-messages-db\.sqlite
+
+
+exclude_regex=\.eclipse
+exclude_regex=\.rvm
+exclude_regex=\.netbeans
+
+cross_all_filesystems=1
+
+exclude_fs = sysfs
+exclude_fs = tmpfs
+exclude_fs = proc
+exclude_fs = devfs
+exclude_fs = devpts
+exclude_fs = ramfs
+exclude_fs = nfs
+
+exclude_comp=bz2
+exclude_comp=gz
+exclude_comp=zip
+exclude_comp=lzo
+exclude_comp=7z
+exclude_comp=jar
+exclude_comp=png
+exclude_comp=jpg
+exclude_comp=gif
+exclude_comp=avi
+exclude_comp=flv
+exclude_comp=webm
+exclude_comp=wmv
+exclude_comp=mp4
+exclude_comp=mpeg
+exclude_comp=mpg
+exclude_comp=mp3
+exclude_comp=ogg
+exclude_comp=z
+exclude_comp=xz
+
+nobackup = .nobackup
+
+
