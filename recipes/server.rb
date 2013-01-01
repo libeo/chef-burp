@@ -26,6 +26,12 @@ directory "/var/run/burp" do
   action :create
 end
 
+#Set myself as a restore client
+if not node['burp']['server_only']['restore_client'].include? node['fqdn']
+  node['burp']['server_only']['restore_client'] << node['fqdn']
+end
+
+
 #Server configuration
 template "/etc/burp/burp-server.conf" do
   source "burp-server.conf.erb"
@@ -41,7 +47,6 @@ cookbook_file "/etc/burp/clientconfdir/incexc/linux_excludes" do
   mode 0644
   source "linux_excludes"
 end
-
 
 #Create client files for all new BURP clients in Chef (node.burp.server is defined)
 search(:node, "burp_server:#{node.fqdn}") do |n|
