@@ -1,3 +1,4 @@
+name             "burp"
 maintainer       "Libeo"
 maintainer_email "sysadmins@libeo.com"
 license          "All rights reserved"
