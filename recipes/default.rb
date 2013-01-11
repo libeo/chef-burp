@@ -26,6 +26,7 @@ template "/etc/cron.d/burp" do
   owner 'root'
   group 'root'
   mode "0640"
+  notifies :reload, "service[cron]"
 end
 
 #Create a directory for backup "plug-ins"
@@ -37,7 +38,7 @@ end
   end
 end
 
-#Copy the .deb from recipe files/
+#Basic scripts to run the plugins
 ["pre.sh", "post.sh"].each do |f|
   cookbook_file "/etc/burp/" + f do
     owner 'root'
