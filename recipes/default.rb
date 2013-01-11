@@ -28,3 +28,22 @@ template "/etc/cron.d/burp" do
   mode "0640"
 end
 
+#Create a directory for backup "plug-ins"
+["/etc/burp/pre.d", "/etc/burp/post.d"].each do |d|
+  directory d do
+    owner 'root'
+    group 'root'
+    mode "0750"
+  end
+end
+
+#Copy the .deb from recipe files/
+["pre.sh", "post.sh"].each do |f|
+  cookbook_file "/etc/burp/" + f do
+    owner 'root'
+    group 'root'
+    mode 0754
+    backup false
+    source f
+  end
+end

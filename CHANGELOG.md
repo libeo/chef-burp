@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of burp.
 
+## 0.3.0:
+
+* Integration of libeo-mysql cookbook (manage MySQL backups)
+
 ## 0.1.0:
 
 * Initial release of burp
