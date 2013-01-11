@@ -20,13 +20,19 @@ template "/etc/burp/burp.conf" do
   mode "0640"
 end
 
+#Don't want to manage cron (yet), just reload it...
+execute "reload_cron" do
+  action :nothing #do nothing, unless receiving a notification
+  command "/usr/sbin/service cron reload"
+  only_if { "/usr/sbin/service cron status" }
+end
 #Slightly modify the cron entry
 template "/etc/cron.d/burp" do
   source "burp.cron.erb"
   owner 'root'
   group 'root'
   mode "0640"
-  notifies :reload, "service[cron]"
+  notifies :run, "execute[reload_cron]"
 end
 
 #Create a directory for backup "plug-ins"
