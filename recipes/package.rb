@@ -4,6 +4,10 @@ package "librsync1" do
   action :install
 end
 
+package "libssl0.9.8" do
+  action :install
+end
+
 #Copy the .deb from recipe files/
 cookbook_file "/var/cache/apt/archives/burp_1.3.20-1_amd64.deb" do
   owner 'root'
