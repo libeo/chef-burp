@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of burp.
 
+## 0.4.0:
+
+* Don't backup Chef files
+* Force a good SSL cipher
+* Start the BURP service by default on the server
+* Last but not least: make the cookbook testable with Vagrant
+
 ## 0.3.0:
 
 * Integration of libeo-mysql cookbook (manage MySQL backups)
