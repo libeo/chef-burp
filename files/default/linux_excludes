@@ -8,6 +8,7 @@ exclude = /boot
 exclude = /mnt
 exclude = /media
 
+
 exclude = /home/klamontagne/tmp
 exclude = /home/klamontagne/iso
 exclude = /home/klamontagne/download
@@ -20,6 +21,7 @@ exclude = /usr/share/man
 exclude = /lib/modules
 exclude = /usr/share/doc
 exclude = /var/lib/mlocate
+exclude = /opt/chef/embedded
 
 exclude = /var/spool/burp
 
