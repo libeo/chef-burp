@@ -44,6 +44,12 @@ template "/etc/burp/burp-server.conf" do
   group 'burp'
   mode "0640"
 end
+template "/etc/default/burp" do
+  source "burp.default.erb"
+  owner 'root'
+  group 'root'
+  mode "0644"
+end
 
 #Default linux excludes
 cookbook_file "/etc/burp/clientconfdir/incexc/linux_excludes" do
