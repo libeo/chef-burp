@@ -29,6 +29,7 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.provision :shell, :inline => "chown burp.burp /var/spool/burp ; /etc/init.d/burp start"
+  config.vm.provision :shell, :inline => "sudo burp -a l" #Vérifier pour des erreurs?
 
 
 end
