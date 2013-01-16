@@ -64,7 +64,7 @@ if Chef::Config[:solo]
   backup_nodes = [node]
 else
   #Real server, Chef search is available
-  #Search for all BURP clients in Chef (their attribute node.burp.server is defined)
+  #Search for all BURP clients in Chef (their attribute node.burp.server == me)
   backup_nodes = search(:node, "burp_server:#{node.fqdn}")
 end
 
