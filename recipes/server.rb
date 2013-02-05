@@ -86,6 +86,10 @@ backup_nodes.each do |n|
   end
 end
 
-#TODO
-#Make sure that "localclient" connects to create certificate
+#Make sure that the local client connects to create certificate
+#execute "burp_initial_connect" do
+#  command "/etc/init.d/burp start; sleep 3; /usr/sbin/burp -a l" # Command without any effect, to initiate signing
+#  not_if { ::File.exists? "/etc/burp/ssl_cert-client.key" } # Started a signig request
+#end
+
 
