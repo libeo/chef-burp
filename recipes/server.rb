@@ -6,7 +6,7 @@ include_recipe 'burp::default'
 user "burp" do
   comment "BURP"
   system true
-  shell "/bin/false"
+  shell "/bin/bash"
 end
 
 #Secure configuration (not the same as client)
