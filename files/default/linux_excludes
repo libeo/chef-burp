@@ -20,6 +20,8 @@ exclude = /var/lib/dpkg
 exclude = /usr/share/man
 exclude = /lib/modules
 exclude = /usr/share/doc
+exclude = /usr/share/terminfo
+exclude = /usr/share/locale
 exclude = /var/lib/mlocate
 exclude = /opt/chef/embedded
 
