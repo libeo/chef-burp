@@ -1,0 +1,4 @@
+# "-b" is for persistent storage.
+DAEMON_OPTS="-l 127.0.0.1 -p 11300 -b /var/lib/beanstalkd"
+
+START=<%= node['burp']['server_only']['is_replica'] ? "no" : "yes" %>

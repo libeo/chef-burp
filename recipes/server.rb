@@ -92,4 +92,36 @@ end
 #  not_if { ::File.exists? "/etc/burp/ssl_cert-client.key" } # Started a signig request
 #end
 
+#Beanstalkd configuration for replication queue
+#Dependencies
+[ "beanstalkd", "php5-cli"].each do |p|
+  package p do
+    action :install
+  end
+end
+
+#Restart on config change
+execute "beanstalkd-restart" do
+  command "/etc/init.d/beanstalkd restart"
+  action :nothing
+end
+
+#Beanstalk config (localhost)
+template "/etc/default/beanstalkd" do #run-parts filename restrictions
+  source "beanstalkd.default.erb"
+  owner 'root'
+  group 'root'
+  mode "0660"
+  notifies :run, "execute[beanstalkd-restart]"
+end
+
+#Tools for queueing job (PHP)
+git "burp-bstools" do
+  repository "https://git.libeo.com/sysadmin-cookbooks/burp-bstools.git"
+  destination "/etc/burp/bstools"
+  revision "master"
+  user "root"
+  action :sync
+  enable_submodules false
+end
 

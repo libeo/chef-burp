@@ -1,0 +1,2 @@
+
+export AUTOSSH_GATETIME=0 sudo -u burp autossh -p36220 burp@backup02.backup.libeo.com -L11300:localhost:11300 -N -f

@@ -1,0 +1,60 @@
+#! /bin/bash
+
+set -u
+
+lockfile="/tmp/cron.do_replication"
+if [ -z "${flock:-}" ] ; then
+  lockopts="-w 0 $lockfile"
+  exec env flock=1 flock $lockopts $0 "$@"
+fi
+
+do_job () {
+  #queue data
+  jobid="$1"
+  jobdata="$2"
+
+  #client name (before the /)
+  client=${jobdata%/*}
+  
+  #backup name (after the /) to change current symlink later
+  backup=${jobdata#*/}
+  
+  #Get current backup dir as source
+  latest="$(readlink "/var/spool/burp/$client/current")"
+  
+  #Necessary for --link-dest functionnality ; die if it fails
+  mkdir -p "/var/spool/burp/$client/$backup" || exit -1;
+  
+  #${latest:+--link-dest="../$latest/"} \
+  #Do the rsync; use latest to hardlink, if it exists
+  if ( cd "/var/spool/burp/$client/$backup" 
+    
+    rsync -e 'ssh -p36220' -z --bwlimit=4000 --delete-delay --fuzzy -r -a --stats --partial \
+    --link-dest="../current/" \
+    burp@backup02.backup.libeo.com::"bis/$client/$backup/*" ./ \
+  )
+  then
+    #Change symlink ; wipe job
+    ( cd /var/spool/burp/$client/ && ln -v -sfn "$backup" current )
+    /etc/burp/bstools/bin/bs.php delete $jobid
+  fi
+}
+
+#Main loop
+while true
+do
+
+  #queue data
+  mjobid="$(/etc/burp/bstools/bin/bs.php peek default | sed -n 1p | cut -d ' ' -f4-)"
+  mjobdata="$(/etc/burp/bstools/bin/bs.php peek default | sed -n 2p | cut -d ' ' -f4-)"
+
+  if [ -n "$mjobid" ]
+  then
+    #Data was retrieved from the queue
+    do_job "$mjobid" "$mjobdata"
+  else
+    sleep 15m;
+  fi
+
+done
+
