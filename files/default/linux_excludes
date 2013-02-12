@@ -24,7 +24,7 @@ exclude = /var/lib/mlocate
 exclude = /opt/chef/embedded
 
 exclude = /var/spool/burp
-
+exclude = /home/koha/koha-dev/var/lib/zebradb
 
 exclude = /var/lib/mysql
 exclude_regex = /var/lib/postgresql.*
