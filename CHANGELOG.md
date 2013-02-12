@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of burp.
 
+## 0.5.0:
+
+* Offsite replication recipe (partial automation)
+* burp user now as a shell
+* new excludes
+
 ## 0.4.0:
 
 * Don't backup Chef files
