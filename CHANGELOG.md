@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of burp.
 
+## 0.6.0:
+
+* More default excludes
+* Add node-specific excludes via attributes
+
 ## 0.5.0:
 
 * Offsite replication recipe (partial automation)
