@@ -21,15 +21,18 @@ exclude = /usr/share/man
 exclude = /lib/modules
 exclude = /usr/share/doc
 exclude = /usr/share/terminfo
+exclude = /usr/share/zoneinfo
 exclude = /usr/share/locale
 exclude = /var/lib/mlocate
 exclude = /opt/chef/embedded
 
 exclude = /var/spool/burp
-exclude = /home/koha/koha-dev/var/lib/zebradb
 
+# Databases
 exclude = /var/lib/mysql
 exclude_regex = /var/lib/postgresql.*
+exclude = /var/lib/ldap
+exclude = /home/koha/koha-dev/var/lib/zebradb
 
 exclude_ext = iso
 exclude_ext = vdi
