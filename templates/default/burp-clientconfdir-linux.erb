@@ -7,3 +7,8 @@ dedup_group = <%= @fqdn %>
 # More configuration files can be read, using syntax like the following
 . incexc/linux_excludes
 
+<% unless @excludes.empty? -%>
+  <% @excludes.each do |exclusion| -%>
+exclude = <%= exclusion %>
+  <% end -%>
+<% end -%>

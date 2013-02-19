@@ -13,9 +13,11 @@ cname = <%= node['fqdn'] %>
 ratelimit = <%= node['burp']['ratelimit_mbps'] %>
 <% end %>
 
+# Just for documentation, since the server overrrides
+#  any include/exclude.
 <% unless node['burp']['excludes'].empty? -%>
   <% node['burp']['excludes'].each do |exclusion| -%>
-exclude = <%= exclusion %>
+# exclude = <%= exclusion %>
   <% end -%>
 <% end -%>
 

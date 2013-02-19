@@ -52,10 +52,15 @@ template "/etc/default/burp" do
 end
 
 #Default linux excludes
+directory "/etc/burp/clientconfdir/incexc" do
+  owner 'root'
+  group 'burp'
+  mode "0655"
+end
 cookbook_file "/etc/burp/clientconfdir/incexc/linux_excludes" do
   owner 'root'
   group 'root'
-  mode 0644
+  mode "0644"
   source "linux_excludes"
 end
 
@@ -80,7 +85,8 @@ backup_nodes.each do |n|
       mode "0640"
       variables(
         :client_password => n['burp']['client_password'],
-        :fqdn => n['fqdn']
+        :fqdn => n['fqdn'],
+        :excludes => n['burp']['excludes']
       )
     end
   end
