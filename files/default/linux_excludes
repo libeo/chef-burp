@@ -40,9 +40,11 @@ exclude_ext = vdi
 exclude_ext = vmdk
 exclude_ext = vhd
 
+#Web tmp files
 exclude_regex=typo3temp
 exclude_regex=/temp_CACHED
 exclude_regex=deprecation_.*\.log$
+exclude_regex=/var/lib/php5/sess.*
 
 exclude_regex=\.ecryptfs
 exclude_regex=\.cache
