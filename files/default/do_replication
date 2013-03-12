@@ -48,7 +48,7 @@ do
   mjobid="$(/etc/burp/bstools/bin/bs.php peek default | sed -n 1p | cut -d ' ' -f4-)"
   mjobdata="$(/etc/burp/bstools/bin/bs.php peek default | sed -n 2p | cut -d ' ' -f4-)"
 
-  if [ -n "$mjobid" ]
+  if [ -n "$mjobid" -a -n "$mjobdata" ]
   then
     #Data was retrieved from the queue
     do_job "$mjobid" "$mjobdata"
