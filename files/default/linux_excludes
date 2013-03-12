@@ -28,9 +28,10 @@ exclude = /opt/chef/embedded
 
 exclude = /var/spool/burp
 
-# Databases
+# Databases and other stores
 exclude = /var/lib/mysql
-exclude_regex = /var/lib/postgresql.*
+exclude_regex = /var/lib/postgresql/.*/main/base
+exclude_regex = /opt/alfresco.*/alf_data/lucene-indexes
 exclude = /var/lib/ldap
 exclude = /home/koha/koha-dev/var/lib/zebradb
 
