@@ -8,5 +8,6 @@ version          "0.7.0"
 
 supports 'debian'
 supports 'ubuntu'
+supports 'rhel'
 
 depends "openssl"

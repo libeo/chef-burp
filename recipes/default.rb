@@ -23,10 +23,19 @@ template "/etc/burp/burp.conf" do
 end
 
 #Don't want to manage cron (yet), just reload it...
+#first, set service path according to platform
+service_path = { 'debian' => '/usr/sbin/service',
+               'ubuntu' => '/usr/sbin/service',
+               'redhat' => '/sbin/service'
+                                 }[ node['platform'] ]
+service_name = { 'debian' => 'cron',
+               'ubuntu' => 'cron',
+               'redhat' => 'crond'
+                                 }[ node['platform'] ]
 execute "reload_cron" do
   action :nothing #do nothing, unless receiving a notification
-  command "/usr/sbin/service cron reload"
-  only_if { "/usr/sbin/service cron status" }
+  command service_path + " " + service_name + " reload"
+  only_if { service_path + " " + service_name + " status" }
 end
 #Slightly modify the cron entry
 template "/etc/cron.d/burp" do
@@ -48,11 +57,14 @@ end
 
 #Basic scripts to run the plugins
 ["pre.sh", "post.sh"].each do |f|
-  cookbook_file "/etc/burp/" + f do
+  template "/etc/burp/" + f do
     owner 'root'
     group 'root'
     mode 0754
     backup false
     source f
+    variables(
+      :platform => node['platform']
+    )
   end
 end
