@@ -24,6 +24,7 @@ exclude = /usr/share/terminfo
 exclude = /usr/share/zoneinfo
 exclude = /usr/share/locale
 exclude = /var/lib/mlocate
+exclude = /var/lib/typo3
 exclude = /opt/chef/embedded
 
 exclude = /var/spool/burp
