@@ -15,6 +15,7 @@ cookbook_file "/var/cache/apt/archives/burp_1.3.20-1_amd64.deb" do
   backup false
   source "burp_1.3.20-1_amd64.deb"
   not_if { node['burp']['install_package?'] != 'true' } #Install by hand?
+  only_if { node['kernel']['machine'] == 'x86_64' }
 end
 
 #Install .deb directly
@@ -23,4 +24,5 @@ package "burp" do
   source "/var/cache/apt/archives/burp_1.3.20-1_amd64.deb"
   provider Chef::Provider::Package::Dpkg
   not_if { node['burp']['install_package?'] != 'true' } #Install by hand?
+  only_if { node['kernel']['machine'] == 'x86_64' }
 end
