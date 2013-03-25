@@ -65,9 +65,9 @@ exclude_regex=\.local/share/Trash/
 exclude_regex=global-messages-db\.sqlite
 
 
-exclude_regex=\.eclipse
-exclude_regex=\.rvm
-exclude_regex=\.netbeans
+exclude_regex=/\.eclipse/
+exclude_regex=/\.rvm/
+exclude_regex=/\.netbeans/
 
 cross_all_filesystems=1
 
