@@ -4,6 +4,7 @@ exclude = /tmp
 exclude = /dev
 exclude = /proc
 exclude = /sys
+exclude = /selinux
 exclude = /boot
 exclude = /mnt
 exclude = /media
