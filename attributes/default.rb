@@ -11,6 +11,10 @@ default['burp']['ratelimit_mbps'] = '5'
 
 default['burp']['excludes'] = []
 
+# Set this value to use other hostname than FQDN
+#default['burp']['cname'] = 'other'
+
+
 #Random sleep time for cron job
 default['burp']['cron_sleeptime'] = '300'
 #Start time for cron job

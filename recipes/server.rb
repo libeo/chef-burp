@@ -75,9 +75,10 @@ end
 
 #Create client files
 backup_nodes.each do |n|
+  cname = (n['burp']['cname'] or n['fqdn'])
   if n['os'] == 'linux'
     #Create a default linux config
-    template "/etc/burp/clientconfdir/#{n.fqdn}" do
+    template "/etc/burp/clientconfdir/#{cname}" do
       :create_if_missing #Never overwrite, or other backup clients could be impersonated!
       source "burp-clientconfdir-linux.erb"
       owner 'root'
@@ -85,7 +86,7 @@ backup_nodes.each do |n|
       mode "0640"
       variables(
         :client_password => n['burp']['client_password'],
-        :fqdn => n['fqdn'],
+        :cname => cname,
         :excludes => n['burp']['excludes']
       )
     end

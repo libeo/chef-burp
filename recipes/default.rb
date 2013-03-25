@@ -20,6 +20,10 @@ template "/etc/burp/burp.conf" do
   owner 'root'
   group 'root'
   mode "0640"
+  variables(
+    #hostname custom?
+    :cname => (node['burp']['cname'] or node['fqdn'])
+  )
 end
 
 #Don't want to manage cron (yet), just reload it...
