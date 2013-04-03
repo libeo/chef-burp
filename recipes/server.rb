@@ -132,3 +132,11 @@ git "burp-bstools" do
   enable_submodules false
 end
 
+cookbook_file "/etc/burp/queue_replication" do
+  owner 'root'
+  group 'burp'
+  mode 0750
+  backup false
+  source "queue_replication"
+end
+
