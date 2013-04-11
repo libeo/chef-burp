@@ -87,7 +87,8 @@ backup_nodes.each do |n|
       variables(
         :client_password => n['burp']['client_password'],
         :cname => cname,
-        :excludes => n['burp']['excludes']
+        :excludes => n['burp']['excludes'],
+        :excludesregex => n['burp']['excludesregex']
       )
     end
   end

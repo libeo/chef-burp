@@ -12,3 +12,9 @@ dedup_group = <%= @cname %>
 exclude = <%= exclusion %>
   <% end -%>
 <% end -%>
+
+<% unless @excludesregex.empty? -%>
+  <% @excludesregex.each do |exclusion| -%>
+exclude_regex = <%= exclusion %>
+  <% end -%>
+<% end -%>

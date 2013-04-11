@@ -15,9 +15,14 @@ ratelimit = <%= node['burp']['ratelimit_mbps'] %>
 
 # Just for documentation, since the server overrrides
 #  any include/exclude.
-<% unless node['burp']['excludes'].empty? -%>
-  <% node['burp']['excludes'].each do |exclusion| -%>
+<% unless @excludes.empty? -%>
+  <% @excludes.each do |exclusion| -%>
 # exclude = <%= exclusion %>
+  <% end -%>
+<% end -%>
+<% unless @excludesregex.empty? -%>
+  <% @excludesregex.each do |exclusion| -%>
+# exclude_regex = <%= exclusion %>
   <% end -%>
 <% end -%>
 

@@ -22,7 +22,9 @@ template "/etc/burp/burp.conf" do
   mode "0640"
   variables(
     #hostname custom?
-    :cname => (node['burp']['cname'] or node['fqdn'])
+    :cname => (node['burp']['cname'] or node['fqdn']),
+    :excludes => node['burp']['excludes'],
+    :excludesregex => node['burp']['excludesregex']
   )
 end
 
