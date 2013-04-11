@@ -1,7 +1,7 @@
 default['burp']['server'] = 'backup02.backup.libeo.com'
 default['burp']['port'] = 4971
 default['burp']['statusport'] = 4972
-default['burp']['network_timeout'] = 300
+default['burp']['network_timeout'] = 3600
 default['burp']['pidfile'] = '/var/run/burp.client.pid'
 #Initialized in the recipe
 #default['burp']['client_password'] = 'abcdefgh1'
