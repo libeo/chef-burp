@@ -31,3 +31,10 @@ default['burp']['umask'] = '0027'
 
 default['burp']['ca_server_name'] = 'backup.libeo.com'
 
+#e-mail settings
+default['burp']['email_all_from'] = '"=?ISO-8859-1?Q?Sauvegarde=20Lib=E9o?=" <backupmaster@libeo.com>'
+#A string is enough for a single recipient.
+default['burp']['email_all_to'] = ''
+default['burp']['email_failure_from'] = '"=?ISO-8859-1?Q?Sauvegarde=20Lib=E9o?=" <backupmaster@libeo.com>'
+default['burp']['email_failure_to'] = ''
+

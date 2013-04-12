@@ -18,3 +18,21 @@ exclude = <%= exclusion %>
 exclude_regex = <%= exclusion %>
   <% end -%>
 <% end -%>
+
+<% unless @email_all_to.empty? -%>
+notify_success_script = /etc/burp/notify_script
+notify_success_arg = sendmail -t
+notify_success_arg = To: <%= @email_all_to %>
+notify_success_arg = From: <%= @email_all_from %>
+notify_success_arg = Subject: OK %w sauvegarde de %c
+notify_success_warnings_only = 0
+notify_success_changes_only = 0
+<% end -%>
+
+<% unless @email_failure_to.empty? -%>
+notify_failure_script = /etc/burp/notify_script
+notify_failure_arg = sendmail -t
+notify_failure_arg = To: <%= @email_failure_to %>
+notify_failure_arg = From: <%= @email_failure_from %>
+notify_failure_arg = Subject: ECHEC %w sauvegarde de %c
+<% end -%>

@@ -75,9 +75,10 @@ end
 
 #Create client files
 backup_nodes.each do |n|
-  cname = (n['burp']['cname'] or n['fqdn'])
+  cname = (n['burp']['cname'] or n['fqdn']) #default name is FQDN
   if n['os'] == 'linux'
     #Create a default linux config
+
     template "/etc/burp/clientconfdir/#{cname}" do
       :create_if_missing #Never overwrite, or other backup clients could be impersonated!
       source "burp-clientconfdir-linux.erb"
@@ -88,7 +89,11 @@ backup_nodes.each do |n|
         :client_password => n['burp']['client_password'],
         :cname => cname,
         :excludes => n['burp']['excludes'],
-        :excludesregex => (n['burp']['excludesregex'] or [])
+        :excludesregex => (n['burp']['excludesregex'] or []),
+        :email_all_from => (n['burp']['email_all_from'] or ""),
+        :email_all_to => (n['burp']['email_all_to'] or ""),
+        :email_failure_from => (n['burp']['email_failure_from'] or ""),
+        :email_failure_to => (n['burp']['email_failure_to'] or "")
       )
     end
   end
