@@ -19,6 +19,13 @@ exclude_regex = <%= exclusion %>
   <% end -%>
 <% end -%>
 
+<% unless @timer_args.nil? -%>
+  <% @timer_args.each do |ta| -%>
+timer_args = <%= ta %>
+  <% end -%>
+<% end -%>
+
+
 <% unless @email_all_to.empty? -%>
 notify_success_script = /etc/burp/notify_script
 notify_success_arg = sendmail -t

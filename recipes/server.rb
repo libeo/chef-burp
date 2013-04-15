@@ -93,7 +93,8 @@ backup_nodes.each do |n|
         :email_all_from => (n['burp']['email_all_from'] or ""),
         :email_all_to => (n['burp']['email_all_to'] or ""),
         :email_failure_from => (n['burp']['email_failure_from'] or ""),
-        :email_failure_to => (n['burp']['email_failure_to'] or "")
+        :email_failure_to => (n['burp']['email_failure_to'] or ""),
+        :timer_args => n['burp']['timer_args']
       )
     end
   end
