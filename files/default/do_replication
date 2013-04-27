@@ -29,7 +29,7 @@ do_job () {
   #Do the rsync; use latest to hardlink, if it exists
   if ( cd "/var/spool/burp/$client/$backup" 
     
-    rsync -e 'ssh -p36220' -z --bwlimit=4000 --delete-delay --fuzzy -r -a --stats --partial \
+    rsync -e 'ssh -p36220' -z --bwlimit=4000 --delete-delay --fuzzy -r -a --omit-dir-times --stats --partial \
     --link-dest="../current/" \
     burp@backup02.backup.libeo.com::"bis/$client/$backup/*" ./ \
   )
