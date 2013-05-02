@@ -8,6 +8,8 @@ exclude = /selinux
 exclude = /boot
 exclude = /mnt
 exclude = /media
+exclude = /var/run
+exclude = /var/lock
 
 
 exclude = /home/klamontagne/tmp
