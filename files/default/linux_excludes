@@ -43,6 +43,7 @@ exclude_ext = iso
 exclude_ext = vdi
 exclude_ext = vmdk
 exclude_ext = vhd
+exclude_ext = ova
 
 #Web tmp files
 exclude_regex=typo3temp
