@@ -74,3 +74,20 @@ end
     )
   end
 end
+
+#Script to backup package list via debconf for debian
+if (platform? "debian" or platform? "ubuntu")
+
+  cookbook_file "/etc/burp/pre.d/debconf-sh" do
+    action :create
+    backup false
+    owner "root"
+    group "root"
+    mode "0754"
+    source "debconf-backup.sh"
+  end
+
+  package 'debconf-utils' do
+	  action :install
+  end
+end
