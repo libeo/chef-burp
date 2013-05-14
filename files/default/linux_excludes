@@ -8,6 +8,7 @@ exclude = /selinux
 exclude = /boot
 exclude = /mnt
 exclude = /media
+exclude = /var/tmp
 exclude = /var/run
 exclude = /var/lock
 
@@ -26,9 +27,17 @@ exclude = /usr/share/doc
 exclude = /usr/share/terminfo
 exclude = /usr/share/zoneinfo
 exclude = /usr/share/locale
+exclude = /usr/include
 exclude = /var/lib/mlocate
 exclude = /var/lib/typo3
 exclude = /opt/chef/embedded
+exclude_regex=^/var/lib/python.*
+exclude_regex=^/usr/lib/python.*
+exclude = /usr/share/i18n
+exclude = /usr/lib/gconv
+
+#Sauvegardes ganeti
+exclude = /srv/ganeti/export
 
 exclude = /var/spool/burp
 
@@ -67,6 +76,8 @@ exclude_regex=\.thunderbird/.*/ImapMail
 exclude_regex=\.local/share/Trash/
 exclude_regex=global-messages-db\.sqlite
 
+#Tomcat catalina.out
+exclude_regex=/catalina\.out$
 
 exclude_regex=/\.eclipse/
 exclude_regex=/\.rvm/
