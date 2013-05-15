@@ -26,6 +26,11 @@ timer_arg = <%= ta %>
   <% end -%>
 <% end -%>
 
+<% unless @restore_clients.empty? -%>
+  <% @restore_clients.each do |r| -%>
+restore_client = <%= r %>
+  <% end -%>
+<% end -%>
 
 <% unless @email_all_to.empty? -%>
 notify_success_script = /etc/burp/notify_script
