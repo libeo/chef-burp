@@ -26,3 +26,12 @@ package "burp" do
   not_if { node['burp']['install_package?'] != 'true' } #Install by hand?
   only_if { node['kernel']['machine'] == 'x86_64' }
 end
+
+#Pin this version (for wheezy)
+cookbook_file "/etc/apt/preferences.d/burp-local" do
+  owner 'root'
+  group 'root'
+  mode 0644
+  backup false
+  source "apt-preference-burp-local.txt"
+end
