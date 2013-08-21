@@ -3,7 +3,7 @@
 
 node.set_unless['burp']['client_password'] = secure_password
 
-include_recipe 'burp::package'
+include_recipe "burp::#{node['burp']['install_method']}"
 
 #Don't let non-root users snoop the SSL key or password
 if not node['recipes'].include?("burp::server")
@@ -40,8 +40,8 @@ service_name = { 'debian' => 'cron',
                                  }[ node['platform'] ]
 execute "reload_cron" do
   action :nothing #do nothing, unless receiving a notification
-  command service_path + " " + service_name + " reload"
-  only_if { service_path + " " + service_name + " status" }
+  command "#{service_path} #{service_name} reload"
+  only_if "#{service_path} #{service_name} status"
 end
 #Slightly modify the cron entry
 template "/etc/cron.d/burp" do
