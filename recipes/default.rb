@@ -6,7 +6,7 @@ node.set_unless['burp']['client_password'] = secure_password
 include_recipe "burp::#{node['burp']['install_method']}"
 
 #Don't let non-root users snoop the SSL key or password
-if not node['recipes'].include?("burp::server")
+if not node.recipe?("burp::server")
   directory "/etc/burp" do
     owner 'root'
     group 'root'
