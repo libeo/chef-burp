@@ -33,7 +33,7 @@ end
 #Set myself as a restore client
 if not node['burp']['server_only']['restore_client'].include? node['fqdn']
   # TODO don't overwrite if there are other restore clients? would that even make sense?
-  node.set['burp']['server_only']['restore_client'] = node['fqdn']
+  node.set['burp']['server_only']['restore_client'] = [ node['fqdn'] ]
   node.save
 end
 
