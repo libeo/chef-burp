@@ -8,6 +8,10 @@ package "burp" do
   action :remove
 end
 
+file "/etc/apt/preferences.d/burp-local" do
+  action :delete # Installed by package previously
+end
+
 node['burp']['dependencies'].each do |p|
   package p
   # http://burp.grke.org/howto.html
