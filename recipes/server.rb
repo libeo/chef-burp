@@ -44,6 +44,7 @@ template "/etc/burp/burp-server.conf" do
   owner 'root'
   group 'burp'
   mode "0640"
+  variables( :client_can_force_backup => node['burp']['server_only']['client_can_force_backup'])
 end
 template "/etc/default/burp" do
   source "burp.default.erb"
