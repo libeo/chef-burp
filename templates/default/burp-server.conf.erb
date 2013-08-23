@@ -131,12 +131,6 @@ notify_failure_arg = Subject: %b failed: %c %w
 #server_script_pre_arg = /etc/burp/burp-server.conf
 #server_script_pre_arg = /etc/burp/server-pre-script.local
 
-#Replication script disabled by Chef if is_replica = true
-<%= node['burp']['server_only']['is_replica'] ? "#" : "" %>server_script_post = /etc/burp/queue_replication
-<%= node['burp']['server_only']['is_replica'] ? "#" : "" %>server_script_post_run_on_fail=0
-#server_script_post_arg = 
-#server_script_post_arg = 
-
 
 
 <% unless node['burp']['server_only']['restore_client'].empty? -%>
