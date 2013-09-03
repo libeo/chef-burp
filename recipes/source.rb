@@ -54,3 +54,12 @@ execute "install burp source" do
     action :nothing #notify only
   end
 end
+
+# install init script
+file "/etc/init.d/burp" do
+  content {IO.read "#{workdir}/debian/init"}
+  owner "root"
+  mode 0755
+end
+
+
