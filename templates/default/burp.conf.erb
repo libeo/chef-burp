@@ -5,7 +5,7 @@ mode = client
 
 port = <%= node['burp']['port'] %>
 server = <%= node['burp']['server'] %>
-ssl_peer_cn = backup.libeo.com
+ssl_peer_cn = <%= node['burp']['ca_server_name'] %>
 password = <%= node['burp']['client_password'] %>
 cname = <%= @cname %>
 
