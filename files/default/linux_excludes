@@ -1,5 +1,6 @@
 include = /
 
+# OS files
 exclude = /tmp
 exclude = /dev
 exclude = /proc
@@ -12,10 +13,7 @@ exclude = /var/tmp
 exclude = /var/run
 exclude = /var/lock
 
-
-exclude = /home/klamontagne/tmp
-exclude = /home/klamontagne/iso
-exclude = /home/klamontagne/download
+# Useless or generated files
 exclude = /home/.ecryptfs
 exclude = /home/virt
 exclude = /usr/src
@@ -31,6 +29,9 @@ exclude = /usr/include
 exclude = /var/lib/mlocate
 exclude = /var/lib/typo3
 exclude = /opt/chef/embedded
+exclude = /opt/chef-server/embedded
+exclude = /var/opt/chef-server
+exclude = /var/chef/cache
 exclude_regex=^/var/lib/python.*
 exclude_regex=^/usr/lib/python.*
 exclude = /usr/share/i18n
@@ -46,7 +47,14 @@ exclude = /var/lib/mysql
 exclude_regex = /var/lib/postgresql/.*/main/base
 exclude_regex = /opt/alfresco.*/alf_data/lucene-indexes
 exclude = /var/lib/ldap
+exclude = /var/lib/mongodb
+exclude = /var/lib/cassandra
+exclude = /var/lib/redis
+exclude = /var/lib/webalizer
 exclude = /home/koha/koha-dev/var/lib/zebradb
+exclude = /var/lib/libvirt/images
+exclude = /var/opt/chef-server # use knife-backup!
+
 
 exclude_ext = iso
 exclude_ext = vdi
