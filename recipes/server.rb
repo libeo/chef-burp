@@ -107,3 +107,9 @@ backup_nodes.each do |n|
   end
 end
 
+# Enable server
+service "burp" do
+  action [ :enable, :start ]
+end
+
+
