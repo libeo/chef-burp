@@ -107,6 +107,13 @@ backup_nodes.each do |n|
   end
 end
 
+# Remove unmanaged files ?
+include_recipe 'managed_directory'
+managed_directory "/etc/burp/clientconfdir" do
+  action :clean
+  only_if { node['burp']['server_only']['auto_remove_clients'] }
+end
+
 # Enable server
 service "burp" do
   action [ :enable, :start ]

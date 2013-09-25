@@ -9,4 +9,7 @@ default['burp']['server_only']['ratelimit_server_mbps'] = '5'
 default['burp']['server_only']['notify_success_mail'] = 'kevin.lamontagne@libeo.com'
 default['burp']['server_only']['notify_failure_mail'] = 'kevin.lamontagne@libeo.com'
 
+# Auto remove clients: enable only if a client disappearence can be detected by reporting!
+default['burp']['server_only']['auto_remove_clients'] = false
+
 
