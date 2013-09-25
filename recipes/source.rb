@@ -56,8 +56,8 @@ execute "install burp source" do
 end
 
 # install init script
-file "/etc/init.d/burp" do
-  content {IO.read "#{workdir}/debian/init"}
+cookbook_file "/etc/init.d/burp" do
+  source "burp.init.sh"
   owner "root"
   mode 0755
 end
