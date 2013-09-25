@@ -15,10 +15,10 @@ exclude = /var/lock
 
 # Useless or generated files
 exclude = /home/.ecryptfs
-exclude = /home/virt
 exclude = /usr/src
 exclude = /var/cache
 exclude = /var/lib/dpkg
+exclude = /var/lib/apt/lists/
 exclude = /usr/share/man
 exclude = /lib/modules
 exclude = /usr/share/doc
@@ -89,6 +89,7 @@ exclude_regex=/catalina\.out$
 
 exclude_regex=/\.eclipse/
 exclude_regex=/\.rvm/
+exclude_regex=/\.rbenv/
 exclude_regex=/\.netbeans/
 
 cross_all_filesystems=1
