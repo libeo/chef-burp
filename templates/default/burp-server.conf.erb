@@ -13,7 +13,7 @@ directory = /var/spool/burp
 clientconfdir = /etc/burp/clientconfdir
 pidfile = /var/run/burp/server.pid
 
-hardlinked_archive = 1
+hardlinked_archive = <%= node['burp']['server_only']['hardlinked_archive'] ? "1" : "0" %>
 working_dir_recovery_method = resume
 max_children = <%= node['burp']['max_children'] %>
 max_status_children = <%= node['burp']['max_status_children'] %>
