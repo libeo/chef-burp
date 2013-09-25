@@ -62,4 +62,8 @@ cookbook_file "/etc/init.d/burp" do
   mode 0755
 end
 
+# remove testclient
+file "/etc/burp/clientconfdir/testclient" do
+  action :delete
+end
 
