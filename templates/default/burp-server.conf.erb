@@ -11,7 +11,7 @@ group = burp
 
 directory = /var/spool/burp
 clientconfdir = /etc/burp/clientconfdir
-pidfile = /var/run/burp/server.pid
+pidfile = <%= node['burp']['server_only']['pidfile'] %>
 
 hardlinked_archive = <%= node['burp']['server_only']['hardlinked_archive'] ? "1" : "0" %>
 working_dir_recovery_method = resume
