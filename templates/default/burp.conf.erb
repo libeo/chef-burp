@@ -15,6 +15,11 @@ ratelimit = <%= node['burp']['ratelimit_mbps'] %>
 
 # Just for documentation, since the server overrrides
 #  any include/exclude.
+<% unless @includesglob.empty? -%>
+  <% @includesglob.each do |inclusion| -%>
+# include_glob = <%= inclusion %>
+  <% end -%>
+<% end -%>
 <% unless @excludes.empty? -%>
   <% @excludes.each do |exclusion| -%>
 # exclude = <%= exclusion %>

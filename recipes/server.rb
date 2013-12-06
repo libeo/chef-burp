@@ -96,6 +96,7 @@ backup_nodes.each do |n|
         :cname => cname,
         :excludes => n['burp']['excludes'],
         :excludesregex => (n['burp']['excludesregex'] or []),
+        :includesglob => (n['burp']['includesglob'] or []),
         :email_all_from => (n['burp']['email_all_from'] or ""),
         :email_all_to => (n['burp']['email_all_to'] or ""),
         :email_failure_from => (n['burp']['email_failure_from'] or ""),

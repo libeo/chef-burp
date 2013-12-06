@@ -20,6 +20,7 @@ default['burp']['ratelimit_mbps'] = '5'
 
 default['burp']['excludes'] = []
 default['burp']['excludesregex'] = []
+default['burp']['includesglob'] = []
 
 # Set this value to use other hostname than FQDN
 #default['burp']['cname'] = 'other'

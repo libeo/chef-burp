@@ -24,7 +24,8 @@ template "/etc/burp/burp.conf" do
     #hostname custom?
     :cname => (node['burp']['cname'] or node['fqdn']),
     :excludes => node['burp']['excludes'],
-    :excludesregex => node['burp']['excludesregex']
+    :excludesregex => node['burp']['excludesregex'],
+    :includesglob => node['burp']['includesglob']
   )
 end
 

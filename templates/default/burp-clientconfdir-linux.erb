@@ -7,6 +7,12 @@ dedup_group = <%= @cname %>
 # More configuration files can be read, using syntax like the following
 . incexc/linux_excludes
 
+<% unless @includesglob.empty? -%>
+  <% @includesglob.each do |inclusion| -%>
+include_glob = <%= inclusion %>
+  <% end -%>
+<% end -%>
+
 <% unless @excludes.empty? -%>
   <% @excludes.each do |exclusion| -%>
 exclude = <%= exclusion %>
