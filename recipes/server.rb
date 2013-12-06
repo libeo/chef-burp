@@ -81,6 +81,7 @@ end
 
 #Create client files
 backup_nodes.each do |n|
+  log "Configuration du client #{n.name} (#{n[:cname]})"
   cname = (n['burp']['cname'] or n['fqdn']) #default name is FQDN
   if n['os'] == 'linux'
     #Create a default linux config

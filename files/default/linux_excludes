@@ -54,7 +54,8 @@ exclude_regex = /var/lib/redis/appendonly
 exclude = /var/lib/webalizer
 exclude = /home/koha/koha-dev/var/lib/zebradb
 exclude = /var/lib/libvirt/images
-exclude = /var/opt/chef-server # use knife-backup!
+# use knife-backup!
+exclude = /var/opt/chef-server
 
 
 exclude_ext = iso
@@ -126,4 +127,4 @@ exclude_comp=xz
 
 nobackup = .nobackup
 
-
+exclude = /srv/alveos/releases
