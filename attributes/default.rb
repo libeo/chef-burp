@@ -1,7 +1,7 @@
 default['burp']['install_method'] = "source"
 default['burp']['git_cache'] = "/var/cache/burp"
 default['burp']['git_remote'] = "https://github.com/grke/burp.git"
-default['burp']['git_ref'] = "707a540aff786e805294af2d36ed46207c392ae4" # 2013-08-18
+default['burp']['git_ref'] = "9568c43e377b15709fc15c8fd00fd9fa5acde982" # 2013-11-14
 default['burp']['force_install'] = false # Set to true to force a one-time reinstall
 
 default['burp']['dependencies'] = %w{ librsync-dev libz-dev libssl-dev uthash-dev autotools-dev libncurses5-dev libacl1-dev libattr1-dev }
