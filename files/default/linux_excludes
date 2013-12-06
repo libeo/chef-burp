@@ -49,7 +49,8 @@ exclude_regex = /opt/alfresco.*/alf_data/lucene-indexes
 exclude = /var/lib/ldap
 exclude = /var/lib/mongodb
 exclude = /var/lib/cassandra
-exclude = /var/lib/redis
+# Keep only RDB
+exclude_regex = /var/lib/redis/appendonly
 exclude = /var/lib/webalizer
 exclude = /home/koha/koha-dev/var/lib/zebradb
 exclude = /var/lib/libvirt/images
