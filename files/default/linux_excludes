@@ -49,6 +49,12 @@ exclude_regex = /opt/alfresco.*/alf_data/lucene-indexes
 exclude = /var/lib/ldap
 exclude = /var/lib/mongodb
 exclude = /var/lib/cassandra
+exclude = /var/lib/varnish
+exclude = /opt/diamond
+exclude = /opt/sensu
+exclude = /usr/lib/jvm
+exclude = /usr/local/go
+exclude = /usr/local/src
 # Keep only RDB
 exclude_regex = /var/lib/redis/appendonly
 exclude = /var/lib/webalizer
