@@ -33,7 +33,7 @@ end
 # configure
 execute "compile burp" do
   cwd workdir
-  command "./configure" # static build (broken) : --enable-static --disable-libtool
+  command "./configure --disable-ipv6" # static build (broken) : --enable-static --disable-libtool
   if node['burp']['force_install']
     action :run
   else 
