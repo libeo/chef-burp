@@ -36,6 +36,7 @@ exclude_regex=^/var/lib/python.*
 exclude_regex=^/usr/lib/python.*
 exclude = /usr/share/i18n
 exclude = /usr/lib/gconv
+exclude_regex=.*/vendor/bundle/.*
 
 #Sauvegardes ganeti
 exclude = /srv/ganeti/export
