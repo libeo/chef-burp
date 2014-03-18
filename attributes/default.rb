@@ -18,6 +18,7 @@ default['burp']['pidfile'] = '/var/run/burp.client.pid'
 default['burp']['ratelimit'] = 'no'
 default['burp']['ratelimit_mbps'] = '5'
 
+default['burp']['removedefaults'] = false
 default['burp']['excludes'] = []
 default['burp']['excludesregex'] = []
 default['burp']['includesglob'] = []

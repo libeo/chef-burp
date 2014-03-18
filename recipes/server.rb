@@ -96,6 +96,7 @@ backup_nodes.each do |n|
         :client_password => n['burp']['client_password'],
         :cname => cname,
         :excludes => n['burp']['excludes'],
+        :removedefaults => n['burp']['removedefaults'],
         :excludesregex => (n['burp']['excludesregex'] or []),
         :includesglob => (n['burp']['includesglob'] or []),
         :includes => (n['burp']['includes'] or []),

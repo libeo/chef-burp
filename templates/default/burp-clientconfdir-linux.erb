@@ -4,8 +4,9 @@ cname = <%= @cname %>
 password = <%= @client_password %>
 dedup_group = <%= @cname %>
 
-# More configuration files can be read, using syntax like the following
+<% unless @removedefaults %>
 . incexc/linux_excludes
+<% end %>
 
 <% unless @includesglob.empty? -%>
   <% @includesglob.each do |inclusion| -%>
