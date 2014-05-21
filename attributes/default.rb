@@ -43,7 +43,7 @@ default['burp']['max_status_children'] = 5
 
 default['burp']['umask'] = '0027'
 
-default['burp']['ca_server_name'] = 'backup.libeo.com'
+default['burp']['ca_server_name'] = 'backup.demarque.com'
 
 #e-mail settings
 default['burp']['email_all_from'] = '"=?ISO-8859-1?Q?Sauvegarde=20Lib=E9o?=" <backupmaster@libeo.com>'
