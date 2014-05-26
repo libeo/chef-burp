@@ -12,6 +12,6 @@ supports 'ubuntu', ">= 12.04"
 depends 'openssl'
 depends 'build-essential'
 depends 'git'
-
+depends 'managed_directory'
 
 recommends 'apt'
