@@ -14,5 +14,5 @@ do
  
 done
 <% else -%>
-run-parts --verbose --exit-on-error --umask=002 -- /etc/burp/pre.d
+run-parts --report --exit-on-error --umask=002 -- /etc/burp/pre.d
 <% end -%>
