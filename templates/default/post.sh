@@ -1,6 +1,6 @@
 #! /bin/bash
 
-<% if @platform == 'redhat' -%>
+<% if node['platform'] == 'redhat' -%>
 #run-parts keeps going when something fails! dumb...
 umask 002
 for x in /etc/burp/post.d/*

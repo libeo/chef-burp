@@ -4,9 +4,6 @@ default['burp']['git_remote'] = "https://github.com/grke/burp.git"
 default['burp']['git_ref'] = "94ec12cddf231be94eaaf428d9a8b86031f51a25" # 1.4-master 2014-04-22
 default['burp']['force_install'] = false # Set to true to force a one-time reinstall
 
-default['burp']['dependencies'] = %w{ librsync-dev libz-dev libssl-dev uthash-dev autotools-dev libncurses5-dev libacl1-dev libattr1-dev }
-# RHEL not supported
-
 default['burp']['server'] = 'backup02.backup.libeo.com'
 default['burp']['port'] = 4971
 default['burp']['statusport'] = 4972

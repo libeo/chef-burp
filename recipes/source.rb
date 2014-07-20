@@ -12,9 +12,18 @@ file "/etc/apt/preferences.d/burp-local" do
   action :delete # Installed by package previously
 end
 
-node['burp']['dependencies'].each do |p|
+# http://burp.grke.org/howto.html
+%w(
+  librsync-dev
+  libz-dev
+  libssl-dev
+  uthash-dev
+  autotools-dev
+  libncurses5-dev
+  libacl1-dev
+  libattr1-dev
+).each do |p|
   package p
-  # http://burp.grke.org/howto.html
 end
 
 workdir = "#{node['burp']['git_cache']}/#{node['burp']['git_ref']}"

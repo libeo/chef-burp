@@ -72,9 +72,6 @@ end
     mode 0754
     backup false
     source f
-    variables(
-      :platform => node['platform']
-    )
   end
 end
 
