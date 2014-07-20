@@ -4,14 +4,6 @@
 
 include_recipe 'build-essential'
 
-package "burp" do
-  action :remove
-end
-
-file "/etc/apt/preferences.d/burp-local" do
-  action :delete # Installed by package previously
-end
-
 # http://burp.grke.org/howto.html
 %w(
   librsync-dev
