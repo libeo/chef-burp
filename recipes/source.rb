@@ -22,48 +22,44 @@ workdir = "#{node['burp']['git_cache']}/#{node['burp']['git_ref']}"
 # clone github repo
 include_recipe 'git'
 directory node['burp']['git_cache']
-git "burp_cache" do
+git 'burp_cache' do
   repository node['burp']['git_remote']
-  reference  node['burp']['git_ref']
+  reference node['burp']['git_ref']
   destination workdir
   action :checkout
-  notifies :run, "execute[compile burp]", :immediate
+  notifies :run, 'execute[compile burp]', :immediate
 end
 
 # configure
-execute "compile burp" do
+execute 'compile burp' do
   cwd workdir
-  command "./configure --disable-ipv6" # static build (broken) : --enable-static --disable-libtool
-  if node['burp']['force_install']
-    action :run
-  else 
-    action :nothing #notify only
-  end
-  notifies :run, "execute[install burp source]", :immediate
+  # static build (broken) : --enable-static --disable-libtool
+  command './configure --disable-ipv6'
+  action node['burp']['force_install'] ? :run : :nothing
+  notifies :run, 'execute[install burp source]', :immediate
 end
 
 # make install
-execute "install burp source" do
+execute 'install burp source' do
   cwd workdir
-  command "make install"
+  command 'make install'
   if node['burp']['force_install']
     action :run
     node.set['burp']['force_install'] = false
     node.save
   else
-    action :nothing #notify only
+    action :nothing
   end
 end
 
 # install init script
-cookbook_file "/etc/init.d/burp" do
-  source "burp.init.sh"
-  owner "root"
+cookbook_file '/etc/init.d/burp' do
+  source 'burp.init.sh'
+  owner 'root'
   mode 0755
 end
 
 # remove testclient
-file "/etc/burp/clientconfdir/testclient" do
+file '/etc/burp/clientconfdir/testclient' do
   action :delete
 end
-
