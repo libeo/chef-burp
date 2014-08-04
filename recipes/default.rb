@@ -6,12 +6,11 @@ node.set_unless['burp']['client_password'] = secure_password
 include_recipe "burp::#{node['burp']['install_method']}"
 
 # Don't let non-root users snoop the SSL key or password
-unless node.recipe?('burp::server')
-  directory '/etc/burp' do
-    owner 'root'
-    group 'root'
-    mode 0750
-  end
+directory '/etc/burp' do
+  owner 'root'
+  group 'root'
+  mode 0750
+  not_if { node.recipe?('burp::server') }
 end
 
 # Basic client config from template
@@ -34,25 +33,25 @@ end
 # Don't want to manage cron (yet), just reload it...
 # first, set service path according to platform
 service_path = { 'debian' => '/usr/sbin/service',
-               'ubuntu' => '/usr/sbin/service',
-               'redhat' => '/sbin/service'
-                                 }[ node['platform'] ]
+                 'ubuntu' => '/usr/sbin/service',
+                 'redhat' => '/sbin/service'
+               }[node['platform']]
 service_name = { 'debian' => 'cron',
-               'ubuntu' => 'cron',
-               'redhat' => 'crond'
-                                 }[ node['platform'] ]
-execute "reload_cron" do
-  action :nothing #do nothing, unless receiving a notification
+                 'ubuntu' => 'cron',
+                 'redhat' => 'crond'
+               }[node['platform']]
+execute 'reload_cron' do
+  action :nothing # do nothing, unless receiving a notification
   command "#{service_path} #{service_name} reload"
   only_if "#{service_path} #{service_name} status"
 end
 # Slightly modify the cron entry
-template "/etc/cron.d/burp" do
-  source "burp.cron.erb"
+template '/etc/cron.d/burp' do
+  source 'burp.cron.erb'
   owner 'root'
   group 'root'
-  mode "0640"
-  notifies :run, "execute[reload_cron]"
+  mode 0640
+  notifies :run, 'execute[reload_cron]'
 end
 
 # Create a directory for backup "plug-ins"

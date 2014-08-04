@@ -73,7 +73,7 @@ if Chef::Config[:solo]
 else
   # Real server, Chef search is available
   # Search for all BURP clients in Chef (their attribute node.burp.server == me)
-  query = "burp_server:#{node.fqdn}"
+  query = "burp_server:#{node['fqdn']}"
   if node['burp']['server_only']['restrict_to_same_environment']
     query += " AND chef_environment:#{node.environment}"
   end
