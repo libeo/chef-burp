@@ -11,9 +11,9 @@ group = burp
 
 directory = /var/spool/burp
 clientconfdir = /etc/burp/clientconfdir
-pidfile = /var/run/burp/server.pid
+pidfile = <%= node['burp']['server_only']['pidfile'] %>
 
-hardlinked_archive = 1
+hardlinked_archive = <%= node['burp']['server_only']['hardlinked_archive'] ? "1" : "0" %>
 working_dir_recovery_method = resume
 max_children = <%= node['burp']['max_children'] %>
 max_status_children = <%= node['burp']['max_status_children'] %>
@@ -24,7 +24,8 @@ stdout = 0
 
 strip_vss=1
 
-client_can_force_backup = 1
+client_can_delete = 0
+client_can_force_backup = <%= node[:burp][:server_only][:client_can_force_backup] ? "1" : "0" %>
 client_can_list = 1
 client_can_restore = 1
 client_can_verify = 1
@@ -32,7 +33,7 @@ client_can_verify = 1
 # You can have as many 'keep' lines as you like.
 # Setting 7, 4, 6 will keep 7 daily backups, 4 weekly, and 6 four-weekly
 # backups.
-keep = 99
+keep = 8
 keep = 4
 keep = 6
 
@@ -129,12 +130,6 @@ notify_failure_arg = Subject: %b failed: %c %w
 #server_script_pre_arg = /etc/burp/crl
 #server_script_pre_arg = /etc/burp/burp-server.conf
 #server_script_pre_arg = /etc/burp/server-pre-script.local
-
-#Replication script disabled by Chef if is_replica = true
-<%= node['burp']['server_only']['is_replica'] ? "#" : "" %>server_script_post = /etc/burp/queue_replication
-<%= node['burp']['server_only']['is_replica'] ? "#" : "" %>server_script_post_run_on_fail=0
-#server_script_post_arg = 
-#server_script_post_arg = 
 
 
 

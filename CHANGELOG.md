@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of burp.
 
+## 0.9.0:
+
+* burp::source to install burp [from source](https://github.com/grke/burp)
+* drop deb install in favor of source. It's simpler.
+* RHEL support dropped, please change the run_list to recipe[burp::none] instead of using atttribute `node['burp']['install_package?'] = false` for RHEL installations, then install BURP manually.
+
 ## 0.6.0:
 
 * More default excludes

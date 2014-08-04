@@ -1,6 +1,6 @@
 #! /bin/bash
 
-<% if @platform == 'redhat' -%>
+<% if node['platform'] == 'redhat' -%>
 #run-parts keeps going when something fails! dumb...
 umask 002
 for x in /etc/burp/post.d/*
@@ -14,5 +14,5 @@ do
  
 done
 <% else -%>
-run-parts --verbose --exit-on-error --umask=002 -- /etc/burp/post.d
+run-parts --report --exit-on-error --umask=002 -- /etc/burp/post.d
 <% end -%>

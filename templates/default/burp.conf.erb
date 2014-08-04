@@ -5,7 +5,7 @@ mode = client
 
 port = <%= node['burp']['port'] %>
 server = <%= node['burp']['server'] %>
-ssl_peer_cn = backup.libeo.com
+ssl_peer_cn = <%= node['burp']['ca_server_name'] %>
 password = <%= node['burp']['client_password'] %>
 cname = <%= @cname %>
 
@@ -15,6 +15,16 @@ ratelimit = <%= node['burp']['ratelimit_mbps'] %>
 
 # Just for documentation, since the server overrrides
 #  any include/exclude.
+<% unless @includesglob.empty? -%>
+  <% @includesglob.each do |inclusion| -%>
+# include_glob = <%= inclusion %>
+  <% end -%>
+<% end -%>
+<% unless @includes.empty? -%>
+  <% @includes.each do |inclusion| -%>
+# include = <%= inclusion %>
+  <% end -%>
+<% end -%>
 <% unless @excludes.empty? -%>
   <% @excludes.each do |exclusion| -%>
 # exclude = <%= exclusion %>
